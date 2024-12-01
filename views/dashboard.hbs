@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body class="bg-gray-100 min-h-screen flex items-center justify-center">
+     <!-- Success or Error Messages -->
+      {{#if successMessage}}
+      <div class="bg-green-500 text-green-100 rounded-lg p-4">
+        <p>{{successMessage}}</p>
+      </div>
+      {{/if}}
+      {{#if errorMessage}}
+      <div class="bg-red-500 text-red-100 rounded-lg p-4">
+        <p>{{errorMessage}}</p>
+      </div>
+      {{/if}}
+    <div class="bg-white shadow-lg rounded-lg p-8 w-full max-w-4xl">
+        <h1 class="text-3xl font-bold text-gray-800 text-center mb-6">Admin Dashboard</h1>
+
+        <!-- Dashboard buttons -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4">
+            <!-- Add Movie -->
+            <a href="/addmovieRoute" class="block bg-blue-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-blue-600 transition">
+                Add a Movie
+            </a>
+
+            <!-- Update Movie -->
+            <a href="/updatemovieRoute" class="block bg-yellow-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-yellow-600 transition">
+                Update a Movie
+            </a>
+
+            <!-- Delete Movie -->
+            <a href="/deletemovieRoute" class="block bg-red-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-red-600 transition">
+                Delete a Movie
+            </a>
+
+            <!-- Scan All Movies -->
+            <a href="/scanallmoviesRoute" class="block bg-green-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-green-600 transition">
+                Scan All Movies
+            </a>
+
+            <!-- Add TV Show -->
+            <a href="/addshowRoute" class="block bg-blue-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-blue-600 transition">
+                Add a TV Show
+            </a>
+
+            <!-- Update TV Show -->
+            <a href="/updateshowRoute" class="block bg-yellow-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-yellow-600 transition">
+                Update TV Show
+            </a>
+
+            <!-- Delete TV Show -->
+            <a href="/deleteshowRoute" class="block bg-red-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-red-600 transition">
+                Delete TV Show
+            </a>
+
+            <!-- Server Status -->
+            <a href="/" class="block bg-gray-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-gray-600 transition">
+                Server Status
+            </a>
+
+            <!-- Restart Server -->
+            <a href="/restart" class="block bg-yellow-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-yellow-600 transition">
+                Restart Server
+            </a>
+
+            <!-- Power Off Server -->
+            <a href="/poweroff" class="block bg-red-500 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-red-600 transition">
+                Power Off Server
+            </a>
+
+            <!-- Logout -->
+            <a href="/admin/logout" class="block bg-gray-800 text-white text-center py-3 rounded-md shadow-md font-semibold hover:bg-gray-900 transition">
+                Logout
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>

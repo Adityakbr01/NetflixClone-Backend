@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie Details</title>
+    <script src="https://cdn.tailwindcss.com"></script> <!-- Include Tailwind CDN -->
+  </head>
+  <body class="bg-gray-800 text-gray-100 font-sans">
+
+    <!-- Main container -->
+    <div class="max-w-4xl mx-auto p-6 space-y-12">
+
+      <!-- Header section -->
+      <div class="text-center">
+        <h1 class="text-4xl font-bold text-yellow-400">{{title}}</h1>
+        <img
+          src="{{primaryImage}}"
+          alt="Movie Poster"
+          class="mx-auto mt-6 rounded-xl shadow-xl w-full max-w-md"
+        />
+      </div>
+
+      <!-- Success or Error Messages -->
+      {{#if successMessage}}
+      <div class="bg-green-500 text-green-100 rounded-lg p-4">
+        <p>{{successMessage}}</p>
+      </div>
+      {{/if}}
+      {{#if errorMessage}}
+      <div class="bg-red-500 text-red-100 rounded-lg p-4">
+        <p>{{errorMessage}}</p>
+      </div>
+      {{/if}}
+
+      <!-- Form section -->
+      <form
+        action="/add-movie-detail"
+        method="POST"
+        class="bg-gray-900 rounded-xl shadow-lg p-8 space-y-6"
+      >
+        <h2 class="text-2xl font-semibold text-yellow-400 text-center">
+          Movie Information
+        </h2>
+
+        <!-- Title Input -->
+        <div>
+          <label for="title" class="block text-sm font-medium text-yellow-400">
+            Title
+          </label>
+          <input
+            type="text"
+            id="title"
+            name="title"
+            value="{{title}}"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+          />
+        </div>
+
+        <!-- Primary Image Input -->
+        <div>
+          <label
+            for="primaryImage"
+            class="block text-sm font-medium text-yellow-400"
+          >
+            Primary Image URL
+          </label>
+          <input
+            type="text"
+            id="primaryImage"
+            name="primaryImage"
+            value="{{primaryImage}}"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+          />
+        </div>
+
+        <!-- Release Year Input -->
+        <div>
+          <label
+            for="releaseYear"
+            class="block text-sm font-medium text-yellow-400"
+          >
+            Release Year
+          </label>
+          <input
+            type="number"
+            id="releaseYear"
+            name="releaseYear"
+            value="{{releaseYear}}"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            required
+          />
+        </div>
+
+        <!-- Categories Input -->
+        <div>
+          <label
+            for="categories"
+            class="block text-sm font-medium text-yellow-400"
+          >
+            Categories
+          </label>
+          <input
+            type="text"
+            id="categories"
+            name="categories"
+            value="{{categories.value}}"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+
+        <!-- Runtime Input -->
+        <div>
+          <label
+            for="runtime"
+            class="block text-sm font-medium text-yellow-400"
+          >
+            Runtime (in seconds)
+          </label>
+          <input
+            type="number"
+            id="runtime"
+            name="runtime"
+            value="{{runtime}}"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+
+        <!-- Release Date Inputs -->
+        <div>
+          <label
+            for="releaseDate"
+            class="block text-sm font-medium text-yellow-400"
+          >
+            Release Date
+          </label>
+          <div class="flex gap-4 mt-1">
+            <input
+              type="number"
+              name="releaseDate[year]"
+              placeholder="Year"
+              value="{{releaseDate.year}}"
+              class="w-1/3 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+            <input
+              type="number"
+              name="releaseDate[month]"
+              placeholder="Month"
+              value="{{releaseDate.month}}"
+              class="w-1/3 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+            <input
+              type="number"
+              name="releaseDate[day]"
+              placeholder="Day"
+              value="{{releaseDate.day}}"
+              class="w-1/3 bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+            />
+          </div>
+        </div>
+
+        <!-- Movie ID Input -->
+        <div>
+          <label for="movieID" class="block text-sm font-medium text-yellow-400">
+            Movie ID
+          </label>
+          <input
+            type="text"
+            id="movieID"
+            name="movieID"
+            value="{{movieID}}"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+
+        <!-- Download Link Input -->
+        <div>
+          <label
+            for="daunloadlink"
+            class="block text-sm font-medium text-yellow-400"
+          >
+            Download Link
+          </label>
+          <input
+            type="text"
+            id="daunloadlink"
+            name="daunloadlink"
+            class="mt-1 w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:outline-none focus:ring-2 focus:ring-yellow-400"
+          />
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          type="submit"
+          class="w-full bg-yellow-400 text-black font-semibold py-3 rounded-lg hover:bg-yellow-500 transition duration-300"
+        >
+          Submit
+        </button>
+      </form>
+
+      <!-- Back to Dashboard link -->
+      <div class="text-center">
+        <a
+          href="/"
+          class="text-blue-400 hover:text-blue-300 text-lg font-medium transition duration-300"
+        >
+          Go to Dashboard
+        </a>
+      </div>
+    </div>
+  </body>
+</html>
